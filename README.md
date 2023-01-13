@@ -4,16 +4,10 @@
   <p align="center">CloudFitGPT Desktop Application (Mac, Windows and Linux)</p>
 </p>
 
-[![English badge](https://img.shields.io/badge/%E8%8B%B1%E6%96%87-English-blue)](./README.md)
-[![简体中文 badge](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-Simplified%20Chinese-blue)](./README-ZH_CN.md)\
-
 
 <!-- [![中文版 badge](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-Traditional%20Chinese-blue)](./README-ZH.md) -->
 
 ## 📦 Install
-
-- [📝 Update Log](./UPDATE_LOG.md)
-- [🕒 History versions...](https://github.com/lencx/ChatGPT/releases)
 
 <!-- download start -->
 
