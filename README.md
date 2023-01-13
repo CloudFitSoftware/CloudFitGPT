@@ -6,5 +6,29 @@
 
 
 
-## 📦 Install
- Coming soon 
+#### PreInstall
+
+- [Rust](https://www.rust-lang.org/)
+- [VS Code](https://code.visualstudio.com/)
+  - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+  - [tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
+
+#### Start
+
+```bash
+# step1:
+git clone https://github.com/lencx/ChatGPT.git
+
+# step2:
+cd ChatGPT
+
+# step3: install deps
+yarn
+
+# step4:
+yarn dev
+
+# step5:
+# bundle path: src-tauri/target/release/bundle
+yarn build
+```
