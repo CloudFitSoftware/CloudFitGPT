@@ -17,7 +17,7 @@
 
 ```bash
 # step1:
-git clone https://github.com/lencx/ChatGPT.git
+git clone 
 
 # step2:
 cd ChatGPT
