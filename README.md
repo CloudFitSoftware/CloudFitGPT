@@ -20,7 +20,7 @@
 git clone 
 
 # step2:
-cd ChatGPT
+cd CloudFitGPT
 
 # step3: install deps
 yarn
