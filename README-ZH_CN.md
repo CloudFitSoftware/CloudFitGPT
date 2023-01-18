@@ -24,22 +24,22 @@
 
 ### Windows
 
-- [ChatGPT_undefined_x64_en-US.msi](https://github.com/lencx/ChatGPT/releases/download/vundefined/ChatGPT_undefined_x64_en-US.msi):
+- [ChatGPT_0.9.2_x64_en-US.msi](https://github.com/lencx/ChatGPT/releases/download/v0.9.2/ChatGPT_0.9.2_x64_en-US.msi):
 - 使用 [winget](https://winstall.app/apps/lencx.ChatGPT):
   ```bash
   # install the latest version
   winget install --id=lencx.ChatGPT -e
 
   # install the specified version
-  winget install --id=lencx.ChatGPT -e --version undefined
+  winget install --id=lencx.ChatGPT -e --version 0.9.0
   ```
 
-**注意：如果安装路径和应用名称相同，会导致冲突 ([#142](https://github.com/lencx/ChatGPT/issues/142#issuecomment-undefined))**
+**注意：如果安装路径和应用名称相同，会导致冲突 ([#142](https://github.com/lencx/ChatGPT/issues/142#issuecomment-0.9.2))**
 
 ### Mac
 
-- [ChatGPT_undefined_x64.dmg](https://github.com/lencx/ChatGPT/releases/download/vundefined/ChatGPT_undefined_x64.dmg)
-- [ChatGPT.app.tar.gz](https://github.com/lencx/ChatGPT/releases/download/vundefined/ChatGPT.app.tar.gz)
+- [ChatGPT_0.9.2_x64.dmg](https://github.com/lencx/ChatGPT/releases/download/v0.9.2/ChatGPT_0.9.2_x64.dmg)
+- [ChatGPT.app.tar.gz](https://github.com/lencx/ChatGPT/releases/download/v0.9.2/ChatGPT.app.tar.gz)
 - Homebrew \
   _[Homebrew 快捷安装](https://brew.sh) ([Cask](https://docs.brew.sh/Cask-Cookbook)):_
   ```sh
@@ -55,8 +55,8 @@
 
 ### Linux
 
-- [chat-gpt_undefined_amd64.deb](https://github.com/lencx/ChatGPT/releases/download/vundefined/chat-gpt_undefined_amd64.deb)
-- [chat-gpt_undefined_amd64.AppImage](https://github.com/lencx/ChatGPT/releases/download/vundefined/chat-gpt_undefined_amd64.AppImage): **工作可靠，`.deb` 运行失败时可以尝试它**
+- [chat-gpt_0.9.2_amd64.deb](https://github.com/lencx/ChatGPT/releases/download/v0.9.2/chat-gpt_0.9.2_amd64.deb)
+- [chat-gpt_0.9.2_amd64.AppImage](https://github.com/lencx/ChatGPT/releases/download/v0.9.2/chat-gpt_0.9.2_amd64.AppImage): **工作可靠，`.deb` 运行失败时可以尝试它**
 - 使用 [AUR](https://aur.archlinux.org/packages/chatgpt-desktop-bin):
   ```bash
   yay -S chatgpt-desktop-bin
@@ -72,7 +72,7 @@
 
 你可以从 [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) 来寻找有趣的功能来导入到应用。也可以使用 `Sync Prompts`，来一键同步所有，如果你不想让某些提示出现在你的斜杠命令，你可以禁用它们。
 
-![chatgpt menu](./assets/chatgpt-menu.png)
+![chatgpt cmd](./assets/chatgpt-cmd.png)
 ![chatgpt sync prompts](./assets/chatgpt-sync-prompts.png)
 
 <!-- 数据导入完成后，可以重新启动应用来使配置生效（`Menu -> Preferences -> Restart ChatGPT`）。 -->
@@ -201,8 +201,9 @@ Mac 上无法安装，提示开发者未验证，具体可以查看下面给出�
 
 #### 预安装
 
-- [Rust](https://www.rust-lang.org/)
-- [VS Code](https://code.visualstudio.com/)
+- [Rust (必须)](https://www.rust-lang.org/)
+- [Node.js (必须)](https://nodejs.org/)
+- [VS Code (可选)](https://code.visualstudio.com/)
   - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
   - [tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode)
 
@@ -225,6 +226,9 @@ yarn dev
 # 构建后的安装包位置: src-tauri/target/release/bundle
 yarn build
 ```
+
+- [The distDir configuration is set to "../dist" but this path doesn't exist](https://github.com/lencx/ChatGPT/discussions/180)
+- [Error A public key has been found, but no private key. Make sure to set TAURI_PRIVATE_KEY environment variable.](https://github.com/lencx/ChatGPT/discussions/182)
 
 ## ❤️ 感谢
 

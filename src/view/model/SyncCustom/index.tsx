@@ -71,10 +71,10 @@ export default function SyncCustom() {
       if (data) {
         await modelCacheSet(data as [], file);
         await modelCacheCmd();
-        message.success('CloudFitGPT Prompts data has been synchronized!');
+        message.success('ChatGPT Prompts data has been synchronized!');
         return true;
       } else {
-        message.error('CloudFitGPT Prompts data sync failed, please try again!');
+        message.error('ChatGPT Prompts data sync failed, please try again!');
         return false;
       }
     }

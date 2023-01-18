@@ -52,7 +52,7 @@ pub fn init(app: &mut App) -> std::result::Result<(), Box<dyn std::error::Error>
         tauri::async_runtime::spawn(async move {
             #[cfg(target_os = "macos")]
             WindowBuilder::new(&app, "core", WindowUrl::App(url.into()))
-                .title("ChatGPT")
+                .title("CloudFitGPT")
                 .resizable(true)
                 .fullscreen(false)
                 .inner_size(800.0, 600.0)
@@ -65,17 +65,20 @@ pub fn init(app: &mut App) -> std::result::Result<(), Box<dyn std::error::Error>
                 .initialization_script(include_str!("../vendors/floating-ui-dom.js"))
                 .initialization_script(include_str!("../vendors/html2canvas.js"))
                 .initialization_script(include_str!("../vendors/jspdf.js"))
-                .initialization_script(include_str!("../assets/core.js"))
-                .initialization_script(include_str!("../assets/popup.core.js"))
-                .initialization_script(include_str!("../assets/export.js"))
-                .initialization_script(include_str!("../assets/cmd.js"))
+                .initialization_script(include_str!("../vendors/turndown.js"))
+                .initialization_script(include_str!("../vendors/turndown-plugin-gfm.js"))
+                .initialization_script(include_str!("../scripts/core.js"))
+                .initialization_script(include_str!("../scripts/popup.core.js"))
+                .initialization_script(include_str!("../scripts/export.js"))
+                .initialization_script(include_str!("../scripts/markdown.export.js"))
+                .initialization_script(include_str!("../scripts/cmd.js"))
                 .user_agent(&chat_conf.ua_window)
                 .build()
                 .unwrap();
 
             #[cfg(not(target_os = "macos"))]
             WindowBuilder::new(&app, "core", WindowUrl::App(url.into()))
-                .title("ChatGPT")
+                .title("CloudFitGPT")
                 .resizable(true)
                 .fullscreen(false)
                 .inner_size(800.0, 600.0)
@@ -86,10 +89,13 @@ pub fn init(app: &mut App) -> std::result::Result<(), Box<dyn std::error::Error>
                 .initialization_script(include_str!("../vendors/floating-ui-dom.js"))
                 .initialization_script(include_str!("../vendors/html2canvas.js"))
                 .initialization_script(include_str!("../vendors/jspdf.js"))
-                .initialization_script(include_str!("../assets/core.js"))
-                .initialization_script(include_str!("../assets/popup.core.js"))
-                .initialization_script(include_str!("../assets/export.js"))
-                .initialization_script(include_str!("../assets/cmd.js"))
+                .initialization_script(include_str!("../vendors/turndown.js"))
+                .initialization_script(include_str!("../vendors/turndown-plugin-gfm.js"))
+                .initialization_script(include_str!("../scripts/core.js"))
+                .initialization_script(include_str!("../scripts/popup.core.js"))
+                .initialization_script(include_str!("../scripts/export.js"))
+                .initialization_script(include_str!("../scripts/markdown.export.js"))
+                .initialization_script(include_str!("../scripts/cmd.js"))
                 .user_agent(&chat_conf.ua_window)
                 .build()
                 .unwrap();
@@ -97,11 +103,6 @@ pub fn init(app: &mut App) -> std::result::Result<(), Box<dyn std::error::Error>
     }
 
     // auto_update
-    if chat_conf.auto_update != "Disable" {
-        info!("stepup::run_check_update");
-        let app = app.handle();
-        utils::run_check_update(app, chat_conf.auto_update == "Silent", None);
-    }
 
     Ok(())
 }

@@ -30,7 +30,12 @@ async fn main() {
         trace: Color::Cyan,
     };
 
-    tauri::Builder::default()
+    cmd::download_list("chat.download.json", "download", None, None);
+    cmd::download_list("chat.notes.json", "notes", None, None);
+
+    let chat_conf = ChatConfJson::get_chat_conf();
+
+    let mut builder = tauri::Builder::default()
         // https://github.com/tauri-apps/tauri/pull/2736
         .plugin(
             LoggerBuilder::new()
@@ -45,15 +50,20 @@ async fn main() {
                 ])
                 .build(),
         )
+        .plugin(tauri_plugin_positioner::init())
+        .plugin(tauri_plugin_autostart::init(
+            MacosLauncher::LaunchAgent,
+            None,
+        ))
         .invoke_handler(tauri::generate_handler![
             cmd::drag_window,
             cmd::fullscreen,
             cmd::download,
+            cmd::save_file,
             cmd::open_link,
             cmd::get_chat_conf,
             cmd::get_theme,
             cmd::reset_chat_conf,
-            cmd::run_check_update,
             cmd::form_cancel,
             cmd::form_confirm,
             cmd::form_msg,
@@ -65,16 +75,18 @@ async fn main() {
             cmd::window_reload,
             cmd::dalle2_window,
             cmd::cmd_list,
+            cmd::download_list,
+            cmd::get_download_list,
             fs_extra::metadata,
         ])
         .setup(setup::init)
-        .plugin(tauri_plugin_positioner::init())
-        .plugin(tauri_plugin_autostart::init(
-            MacosLauncher::LaunchAgent,
-            None,
-        ))
-        .menu(menu::init())
-        .system_tray(menu::tray_menu())
+        .menu(menu::init());
+
+    if chat_conf.tray {
+        builder = builder.system_tray(menu::tray_menu());
+    }
+
+    builder
         .on_menu_event(menu::menu_handler)
         .on_system_tray_event(menu::tray_handler)
         .on_window_event(|event| {

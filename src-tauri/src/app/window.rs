@@ -10,7 +10,7 @@ pub fn tray_window(handle: &tauri::AppHandle) {
 
     tauri::async_runtime::spawn(async move {
         WindowBuilder::new(&app, "tray", WindowUrl::App(chat_conf.origin.into()))
-            .title("ChatGPT")
+            .title("CloudFitGPT")
             .resizable(false)
             .fullscreen(false)
             .inner_size(360.0, 540.0)
@@ -20,9 +20,9 @@ pub fn tray_window(handle: &tauri::AppHandle) {
             .initialization_script(&utils::user_script())
             .initialization_script(include_str!("../vendors/floating-ui-core.js"))
             .initialization_script(include_str!("../vendors/floating-ui-dom.js"))
-            .initialization_script(include_str!("../assets/core.js"))
-            .initialization_script(include_str!("../assets/cmd.js"))
-            .initialization_script(include_str!("../assets/popup.core.js"))
+            .initialization_script(include_str!("../scripts/core.js"))
+            .initialization_script(include_str!("../scripts/cmd.js"))
+            .initialization_script(include_str!("../scripts/popup.core.js"))
             .user_agent(&chat_conf.ua_tray)
             .build()
             .unwrap()
@@ -73,9 +73,9 @@ pub fn dalle2_window(
             .inner_size(800.0, 600.0)
             .always_on_top(false)
             .theme(theme)
-            .initialization_script(include_str!("../assets/core.js"))
+            .initialization_script(include_str!("../scripts/core.js"))
             .initialization_script(&query)
-            .initialization_script(include_str!("../assets/dalle2.js"))
+            .initialization_script(include_str!("../scripts/dalle2.js"))
             .build()
             .unwrap();
         });

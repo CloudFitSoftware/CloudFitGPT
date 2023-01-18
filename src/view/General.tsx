@@ -40,7 +40,7 @@ const PopupSearchLabel = () => {
       {' '}
       <Tooltip title={(
         <div>
-          <div style={{ marginBottom: 10 }}>Generate images according to the content: Select the CloudFitGPT content with the mouse, no more than 400 characters. the <b>DALL·E 2</b> button appears, and click to jump (Note: because the search content filled by the script cannot trigger the event directly, you need to enter a space in the input box to make the button clickable).</div>
+          <div style={{ marginBottom: 10 }}>Generate images according to the content: Select the ChatGPT content with the mouse, no more than 400 characters. the <b>DALL·E 2</b> button appears, and click to jump (Note: because the search content filled by the script cannot trigger the event directly, you need to enter a space in the input box to make the button clickable).</div>
           <div>The application is built using Tauri, and due to its security restrictions, some of the action buttons will not work, so we recommend going to your browser.</div>
         </div>
       )}><QuestionCircleOutlined style={{ color: '#1677ff' }} /></Tooltip>
